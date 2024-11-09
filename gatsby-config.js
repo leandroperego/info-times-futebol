@@ -6,5 +6,14 @@ module.exports = {
     title: `Info Times`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: ["gatsby-plugin-postcss"]
+  plugins: [
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "times",
+        "path": `${__dirname}/times`
+      }
+    },
+    "gatsby-plugin-mdx",
+    "gatsby-plugin-postcss"]
 };

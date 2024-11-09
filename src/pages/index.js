@@ -1,9 +1,10 @@
 import * as React from "react"
+import Layout from "../components/Layout"
 
 export default function HomePage() {
   return (
     <div>
-      <h1>Home Page</h1>
+      <Layout title={"Home Page"}/>
     </div>
   )
 }
