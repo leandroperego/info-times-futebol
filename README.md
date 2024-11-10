@@ -42,3 +42,4 @@ http://localhost:8000
 * Implementar novas funcionalidades, como poder escutar o hino
 * Adicionar mais informações sobre os times.
 * Validação do formulário
+* Inserir novos clubes
