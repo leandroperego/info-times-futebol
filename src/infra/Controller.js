@@ -20,6 +20,18 @@ class Controller {
             return false
         })
     }
+
+    getEstados() {
+        return fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome")
+            .then(response => response.json())
+            .catch(error => console.log(error));
+    }
+
+    getMunicipios(idEstado) {
+        return fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${idEstado}/municipios?orderBy=nome`)
+            .then(response => response.json())
+            .catch(error => console.log(error));
+    }
 }
 
 export default new Controller();

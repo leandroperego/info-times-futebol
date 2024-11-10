@@ -16,14 +16,56 @@ export default function Contato() {
     const [inputs, setInputs] = React.useState({
         nome: "",
         email: "",
-        estado: "",
+        estado: {
+            id: "",
+            value: ""
+        },
         cidade: "",
         mensagem: "",
     });
+    const [estados, setEstados] = React.useState([]);
+    const [cidades, setCidades] = React.useState(["Selecione..."]);
+
+    React.useEffect(() => {
+        const opt = [{ id: "", value: "Selecione..." }];
+        Controller.getEstados()
+            .then((data) => {
+                data.forEach(uf => {
+                    opt.push({
+                        id: uf.id,
+                        value: uf.sigla
+                    });
+                });
+                setEstados(opt);
+            })
+            .catch((error) => console.log(error));
+    }, []);
+
+    React.useEffect(() => {
+        if (inputs.estado.id !== "") {
+            const opt = ["Selecione..."];
+            Controller.getMunicipios(inputs.estado.id)
+                .then((data) => {
+                    data.forEach(cidade => {
+                        opt.push(cidade.nome);
+                    });
+                    setCidades(opt);
+                })
+                .catch((error) => console.log(error));
+        }
+    }, [inputs.estado]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setInputs((inputs) => ({ ...inputs, [name]: value }));
+    };
+
+    const handleChangeSelectEstado = (valueSelected) => {
+        setInputs((inputs) => ({ ...inputs, estado: { id: valueSelected, value: estados.find(uf => uf.id === valueSelected).value } }));
+    };
+
+    const handleChangeSelectCidade = (valueSelected) => {
+        setInputs((inputs) => ({ ...inputs, cidade: valueSelected }));
     };
 
     const handleSubmit = (e) => {
@@ -35,7 +77,10 @@ export default function Contato() {
             setInputs({
                 nome: "",
                 email: "",
-                estado: "",
+                estado: {
+                    id: "",
+                    value: ""
+                },
                 cidade: "",
                 mensagem: "",
             });
@@ -87,20 +132,22 @@ export default function Contato() {
                         <Typography variant="h6" color="blue-gray" className="-mb-3">
                             Selecione seu estado
                         </Typography>
-                        <Select label="Selecione..." onChange={(option) => setInputs((inputs) => ({ ...inputs, estado: option }))}>
-                            <input type="hidden" name="estado" value={inputs.estado} />
-                            <Option value="pr">PR</Option>
-                            <Option value="sc">SC</Option>
-                            <Option value="rs">RS</Option>
+                        <Select label="Selecione..." name="estado" onChange={handleChangeSelectEstado}>
+                            {
+                                estados.map((estado) => (
+                                    <Option key={estado.id} value={estado.id}>{estado.value}</Option>
+                                ))
+                            }
                         </Select>
                         <Typography variant="h6" color="blue-gray" className="-mb-3">
                             Selecione sua cidade
                         </Typography>
-                        <Select label="Selecione..." disabled={inputs.estado ? false : true} onChange={(option) => setInputs((inputs) => ({ ...inputs, cidade: option }) )}>
-                            <input type="hidden" name="cidade" value={inputs.cidade} />
-                            <Option>Curitiba</Option>
-                            <Option>Campo Largo</Option>
-                            <Option>Pinhais</Option>
+                        <Select label="Selecione..." name="cidade" disabled={inputs.estado.id ? false : true} onChange={handleChangeSelectCidade}>
+                            {
+                                cidades.map((cidade, index) => (
+                                    <Option key={index} value={cidade}>{cidade}</Option>
+                                ))
+                            }
                         </Select>
                         <Typography variant="h6" color="blue-gray" className="-mb-3">
                             Escreva sua mensagem
