@@ -39,5 +39,6 @@ http://localhost:8000
 
 ## Próximos Passos
 
-	•	Implementar novas funcionalidades, como poder escutar o hino
-	•	Adicionar mais informações sobre os times.
+* Implementar novas funcionalidades, como poder escutar o hino
+* Adicionar mais informações sobre os times.
+* Validação do formulário
