@@ -15,5 +15,9 @@ module.exports = {
       }
     },
     "gatsby-plugin-mdx",
-    "gatsby-plugin-postcss"]
+    "gatsby-plugin-postcss",
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp"
+  ]
 };
