@@ -130,7 +130,7 @@ function NavList() {
         </Typography>
       </Link>
       <NavListMenu />
-      <Link to="/">
+      <Link to="/contato">
         <Typography
           variant="small"
           color="blue-gray"
