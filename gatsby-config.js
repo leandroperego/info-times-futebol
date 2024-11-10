@@ -4,7 +4,8 @@
 module.exports = {
   siteMetadata: {
     title: `Info Times`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.yourdomain.tld`,
+    copy: `Copyright © ${new Date().getFullYear()} Leandro Perego`
   },
   plugins: [
     {

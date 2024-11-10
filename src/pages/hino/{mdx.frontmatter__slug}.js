@@ -27,7 +27,7 @@ export const query = graphql`
                 hero_logo_alt
                 hero_logo {
                     childImageSharp {
-                        gatsbyImageData(width: 50, placeholder: BLURRED, formats: WEBP)
+                        gatsbyImageData(width: 50, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
                     }
                 }  
             }

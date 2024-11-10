@@ -34,4 +34,5 @@ class Controller {
     }
 }
 
-export default new Controller();
+const instance = new Controller();
+export default instance;

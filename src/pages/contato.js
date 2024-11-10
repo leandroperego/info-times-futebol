@@ -73,7 +73,7 @@ export default function Contato() {
         const response = Controller.enviarContato(inputs);
 
         if (response) {
-            alert("Mensagem enviada com sucesso! Em breve retornamos seu contato.");
+            alert("Mensagem enviada com sucesso! Em breve retornaremos seu contato.");
             setInputs({
                 nome: "",
                 email: "",
@@ -96,7 +96,7 @@ export default function Contato() {
                     Fale Conosco
                 </Typography>
                 <Typography color="gray" className="mt-1 font-normal">
-                    Vamos fazer parte da nossa comunidade
+                    Venha fazer parte da nossa comunidade
                 </Typography>
                 <form name="form_contato" method="post" data-netlify="true" data-netlify-honeypot="bot-field" className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
                     <input type="hidden" name="form-name" value="form_contato" />

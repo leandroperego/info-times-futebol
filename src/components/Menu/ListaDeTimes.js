@@ -6,7 +6,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 export default function ListaDeTimes() {
     const query = useStaticQuery(graphql`
         query {
-            allMdx {
+            allMdx(sort: {frontmatter: {time: ASC}}) {
                 nodes {
                     frontmatter {
                         time
@@ -14,7 +14,7 @@ export default function ListaDeTimes() {
                         hero_logo_alt
                         hero_logo {
                             childImageSharp {
-                                gatsbyImageData(width: 25, placeholder: BLURRED, formats: WEBP)
+                                gatsbyImageData(width: 25, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
                             }
                         }  
                     }
