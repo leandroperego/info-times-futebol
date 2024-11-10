@@ -4,12 +4,12 @@ Info Times é um site desenvolvido com Gatsby com o objetivo de exibir informaç
 
 ## Funcionalidades
 
-	•	**Hinos dos Clubes**: No momento, o site permite conhecer a letra dos hinos dos clubes de futebol.
+* **Hinos dos Clubes**: No momento, o site permite conhecer a letra dos hinos dos clubes de futebol.
 
 ## Tecnologias Utilizadas
 
-	•	Gatsby: Framework de React para desenvolvimento de sites estáticos.
-	•	Plugins Gatsby: Utilizados para otimizar o site e integrar funcionalidades adicionais.
+* Gatsby: Framework de React para desenvolvimento de sites estáticos.
+* Plugins Gatsby: Utilizados para otimizar o site e integrar funcionalidades adicionais.
 
 ## Objetivo do Projeto
 
