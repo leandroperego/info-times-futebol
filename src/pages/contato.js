@@ -58,6 +58,7 @@ export default function Contato() {
                             Seu nome
                         </Typography>
                         <Input
+                            name="nome"
                             value={inputs.nome}
                             onChange={handleChange}
                             size="lg"
@@ -71,6 +72,7 @@ export default function Contato() {
                             Seu e-mail
                         </Typography>
                         <Input
+                            name="email"
                             value={inputs.email}
                             onChange={handleChange}
                             size="lg"
@@ -83,7 +85,7 @@ export default function Contato() {
                         <Typography variant="h6" color="blue-gray" className="-mb-3">
                             Selecione seu estado
                         </Typography>
-                        <Select label="Selecione..." value={inputs.estado} onChange={handleChange}>
+                        <Select label="Selecione..." name="estado" value={inputs.estado} onChange={handleChange}>
                             <Option value="pr">PR</Option>
                             <Option value="sc">SC</Option>
                             <Option value="rs">RS</Option>
@@ -91,7 +93,7 @@ export default function Contato() {
                         <Typography variant="h6" color="blue-gray" className="-mb-3">
                             Selecione sua cidade
                         </Typography>
-                        <Select label="Selecione..." value={inputs.cidade} onChange={handleChange} disabled={inputs.estado ? false : true}>
+                        <Select label="Selecione..." name="cidade" value={inputs.cidade} onChange={handleChange} disabled={inputs.estado ? false : true}>
                             <Option>Curitiba</Option>
                             <Option>Campo Largo</Option>
                             <Option>Pinhais</Option>
@@ -100,7 +102,7 @@ export default function Contato() {
                             Escreva sua mensagem
                         </Typography>
                         <div className="flex w-auto flex-col gap-6">
-                            <Textarea variant="outlined" placeholder="Sua mensagem..." value={inputs.mensagem} onChange={handleChange} />
+                            <Textarea variant="outlined" placeholder="Sua mensagem..." name="mensagem" value={inputs.mensagem} onChange={handleChange} />
                         </div>
                     </div>
                     <Button type="submit" onClick={handleSubmit} className="mt-6" fullWidth>
