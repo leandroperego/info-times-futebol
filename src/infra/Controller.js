@@ -8,11 +8,12 @@ class Controller {
             .join("&");
     };
     enviarContato(campos) {
-        fetch("/", {
+        return fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: this.encode({ "form-name": "form_contato", ...campos })
+            body: this.encode.bind()({ "form-name": "form_contato", ...campos })
         }).then(() => {
+            console.log("enviado");
             return true
         }).catch((error) => {
             console.log(error);

@@ -16,8 +16,8 @@ export default function Contato() {
     const [inputs, setInputs] = React.useState({
         nome: "",
         email: "",
-        estado: null,
-        cidade: null,
+        estado: "",
+        cidade: "",
         mensagem: "",
     });
 
@@ -35,10 +35,12 @@ export default function Contato() {
             setInputs({
                 nome: "",
                 email: "",
-                estado: null,
-                cidade: null,
+                estado: "",
+                cidade: "",
                 mensagem: "",
             });
+        } else {
+            alert("Ocorreu um erro ao enviar sua mensagem.");
         }
     };
 
@@ -85,7 +87,8 @@ export default function Contato() {
                         <Typography variant="h6" color="blue-gray" className="-mb-3">
                             Selecione seu estado
                         </Typography>
-                        <Select label="Selecione..." name="estado" value={inputs.estado} onChange={handleChange}>
+                        <Select label="Selecione..." onChange={(option) => setInputs((inputs) => ({ ...inputs, estado: option }))}>
+                            <input type="hidden" name="estado" value={inputs.estado} />
                             <Option value="pr">PR</Option>
                             <Option value="sc">SC</Option>
                             <Option value="rs">RS</Option>
@@ -93,7 +96,8 @@ export default function Contato() {
                         <Typography variant="h6" color="blue-gray" className="-mb-3">
                             Selecione sua cidade
                         </Typography>
-                        <Select label="Selecione..." name="cidade" value={inputs.cidade} onChange={handleChange} disabled={inputs.estado ? false : true}>
+                        <Select label="Selecione..." disabled={inputs.estado ? false : true} onChange={(option) => setInputs((inputs) => ({ ...inputs, cidade: option }) )}>
+                            <input type="hidden" name="cidade" value={inputs.cidade} />
                             <Option>Curitiba</Option>
                             <Option>Campo Largo</Option>
                             <Option>Pinhais</Option>
